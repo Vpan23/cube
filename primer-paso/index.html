@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube #1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="dimension">
+        <div class="cube1" id="cube"></div>
+    </div>
+</body>
+
+<script>
+    var CUBE1 = document.getElementById("cube");
+    let colorIndex = 0;
+    var top = 0;
+    var left = 0;
+    const colors = ['rgb(125, 105, 105)','rgb(94, 154, 123)','rgb(56, 65, 148)','rgb(94, 131, 62)'];
+    CUBE1.addEventListener('click', () => {
+        console.log('click');
+        CUBE1.style.backgroundColor = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+    });
+    document.addEventListener("keydown", (event)=> {
+        if(event.keyCode === 37){   //Tecla Izq
+
+        }
+    })
+
+
+
+</script>
+
+</html>

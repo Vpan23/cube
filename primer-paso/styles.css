@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+
+}
+#dimension {
+    margin: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+#dimension .cube1 {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(94, 131, 62);
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+/* #dimension .cube1:hover{
+    background-color: rgb(148, 169, 162);
+} */
