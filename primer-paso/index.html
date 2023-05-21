@@ -9,27 +9,47 @@
 </head>
 <body>
     <div id="dimension">
-        <div class="cube1" id="cube"></div>
+        <div class="cube1" id="miElemento" style="position: absolute; top: 0; left: 0;"></div>
     </div>
 </body>
 
 <script>
-    var CUBE1 = document.getElementById("cube");
-    let colorIndex = 0;
-    var top = 0;
-    var left = 0;
-    const colors = ['rgb(125, 105, 105)','rgb(94, 154, 123)','rgb(56, 65, 148)','rgb(94, 131, 62)'];
-    CUBE1.addEventListener('click', () => {
-        console.log('click');
-        CUBE1.style.backgroundColor = colors[colorIndex];
-        colorIndex = (colorIndex + 1) % colors.length;
-    });
-    document.addEventListener("keydown", (event)=> {
-        if(event.keyCode === 37){   //Tecla Izq
+    // Obtén una referencia al elemento que deseas mover
+var elemento = document.getElementById('miElemento');
+var velocidadMovimiento = 20; // Velocidad de movimiento del elemento
 
-        }
-    })
+// Agrega eventos de escucha para los eventos "keydown" y "keyup"
+document.addEventListener('keydown', moverElemento);
+document.addEventListener('keyup', detenerElemento);
 
+// Variable para almacenar el estado de las teclas
+var teclasPresionadas = {};
+
+// Función para mover el elemento
+function moverElemento(event) {
+  // Almacena el código de la tecla presionada en el objeto de teclas presionadas
+  teclasPresionadas[event.code] = true;
+
+  // Verifica qué tecla se ha presionado y mueve el elemento en consecuencia
+  if (teclasPresionadas['ArrowUp']) {
+    elemento.style.top = (parseInt(elemento.style.top) - velocidadMovimiento) + 'px';
+  }
+  if (teclasPresionadas['ArrowDown']) {
+    elemento.style.top = (parseInt(elemento.style.top) + velocidadMovimiento) + 'px';
+  }
+  if (teclasPresionadas['ArrowLeft']) {
+    elemento.style.left = (parseInt(elemento.style.left) - velocidadMovimiento) + 'px';
+  }
+  if (teclasPresionadas['ArrowRight']) {
+    elemento.style.left = (parseInt(elemento.style.left) + velocidadMovimiento) + 'px';
+  }
+}
+
+// Función para detener el movimiento del elemento
+function detenerElemento(event) {
+  // Elimina la tecla del objeto de teclas presionadas al soltarla
+  delete teclasPresionadas[event.code];
+}
 
 
 </script>
